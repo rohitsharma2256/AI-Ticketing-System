@@ -72,7 +72,10 @@ Example request:
   "userId": 1
 }
 
+---
+
 ⚙️ Project Setup
+
 1. Clone repository
 git clone https://github.com/YOUR_USERNAME/AI-Ticketing-System.git
 
@@ -92,9 +95,13 @@ Server runs on:
 
 http://localhost:8080
 
+---
+
 🧪 Testing APIs
 
 Use Postman to test endpoints.
+
+---
 
 🗄 Database Tables
 
@@ -108,6 +115,8 @@ Relationship:
 User → Many Tickets
 Ticket → One Response
 
+---
+
 🎯 Use Cases
 
 Customer support systems
@@ -117,6 +126,8 @@ IT helpdesk automation
 SaaS product support
 
 E-commerce issue management
+
+---
 
 🔮 Future Enhancements
 
@@ -133,6 +144,8 @@ Admin dashboard
 Docker deployment
 
 React frontend
+
+---
 
 👨‍💻 Author
 

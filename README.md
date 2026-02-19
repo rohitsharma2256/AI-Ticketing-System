@@ -72,51 +72,6 @@ Example request:
   "userId": 1
 }
 
----
-
-⚙️ Project Setup
-
-1. Clone repository
-git clone https://github.com/YOUR_USERNAME/AI-Ticketing-System.git
-
-2. Create PostgreSQL database
-ticketing_db
-
-3. Configure application.properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/ticketing_db
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-
-4. Run application
-mvn spring-boot:run
-
-
-Server runs on:
-
-http://localhost:8080
-
----
-
-🧪 Testing APIs
-
-Use Postman to test endpoints.
-
----
-
-🗄 Database Tables
-
-users
-
-tickets
-
-ticket_responses
-
-Relationship:
-User → Many Tickets
-Ticket → One Response
-
----
-
 🎯 Use Cases
 
 Customer support systems
@@ -127,12 +82,11 @@ SaaS product support
 
 E-commerce issue management
 
----
 
 🔮 Future Enhancements
 
- Real AI model integration
- 
+Real AI model integration
+
 JWT authentication
 
 Role-based authorization
@@ -145,9 +99,9 @@ Docker deployment
 
 React frontend
 
----
 
 👨‍💻 Author
 
 Rohit Rajendra Sharma
 Java Backend Developer
+

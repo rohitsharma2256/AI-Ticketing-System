@@ -1,4 +1,4 @@
-# 🤖 AI-Powered Smart Ticketing & Issue Resolution System
+# 🤖 AI Smart Ticketing & Issue Resolution System
 
 A production-style Helpdesk Ticket Management backend built using Spring Boot and PostgreSQL with AI-powered ticket classification and automated response generation.
 

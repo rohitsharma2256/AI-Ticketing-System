@@ -9,6 +9,7 @@ import com.smartTicket.ticketing_system.repository.TicketRepository;
 import com.smartTicket.ticketing_system.repository.TicketResponseRepository;
 import com.smartTicket.ticketing_system.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TicketService {
@@ -24,11 +25,12 @@ public class TicketService {
                          AiService aiService) {
         this.ticketRepository = ticketRepository;
         this.userRepository = userRepository;
-        this.ticketResponseRepository = (TicketResponseRepository) ticketResponseRepository;
+        this.ticketResponseRepository =ticketResponseRepository;
         this.aiService = aiService;
     }
 
-    public Ticket createTicket(TicketRequestDto dto) throws Exception {
+    @Transactional
+    public Ticket createTicket(TicketRequestDto dto) {
 
         //  Validate user
         User user = userRepository.findById(dto.getUserId())
@@ -42,7 +44,12 @@ public class TicketService {
         ticket.setStatus("OPEN"); // default status
 
         // 3 Call AI service
-        AiTicketAnalysis ai = aiService.analyzeTicket(dto.getDescription());
+        AiTicketAnalysis ai = aiService.analysisTicket(dto.getDescription());
+
+        //Edge case handling
+        if (ai == null) {
+            throw new RuntimeException("AI analysis failed");
+        }
 
         ticket.setCategory(ai.getCategory());
         ticket.setPriority(ai.getPriority());
@@ -63,8 +70,7 @@ public class TicketService {
         response.setTicket(saved);
         response.setMessage(ai.getAutoReply());
         response.setAiGenerated(true);
-
-
+        ticketResponseRepository.save(response);
         // Return saved ticket
         return saved;
     }
